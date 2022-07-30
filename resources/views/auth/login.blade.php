@@ -40,7 +40,7 @@
 
                                         <div class="main-signin-footer text-center mt-3">
                                             <p><a href="{{ route('password.request') }}" class="mb-3">Forgot password?</a></p>
-                                            <p>Don't have an account? <a href="{{ route('form_register') }}">Create an Account</a></p>
+{{--                                            <p>Don't have an account? <a href="{{ route('form_register') }}">Create an Account</a></p>--}}
                                         </div>
                                     </div>
                                 </div>

@@ -66,7 +66,11 @@ class AllSeeder extends Seeder
             ],
             [
                 'kategori_tabel' => 'invoice',
-                'nama_status' => 'Ditolak',
+                'nama_status' => 'Tidak Dibayar',
+            ],
+            [
+                'kategori_tabel' => 'langganan',
+                'nama_status' => 'Menunggu Disetujui',
             ],
         ];
         DB::table('status')->insert($status);
@@ -74,13 +78,48 @@ class AllSeeder extends Seeder
 //        2
         $user = [
             [
-                'name' => 'admin 1',
-                'email' => 'user@admin.com',
-                'username' => '087876785956',
+                'name' => 'admin gudang media perkasa',
+                'email' => 'gmp@admin.com',
+                'username' => '081902503960',
                 'password' => Hash::make('admin123'),
                 'user_role' => 1,
                 'status_id' => 3,
+                'ppn' => '0',
                 'email_verified_at' => Carbon::now(),
+                'created_at' => Carbon::now(),
+            ],
+            [
+                'name' => 'Pelanggan 1',
+                'email' => 'pane@user.com',
+                'username' => '085790554276',
+                'password' => Hash::make('085790554276'),
+                'user_role' => 3,
+                'status_id' => 2,
+                'ppn' => '0',
+                'email_verified_at' => null,
+                'created_at' => Carbon::now(),
+            ],
+            [
+                'name' => 'Pelanggan 2',
+                'email' => 'trias@user.com',
+                'username' => '085790554275',
+                'password' => Hash::make('085790554275'),
+                'user_role' => 3,
+                'status_id' => 3,
+                'ppn' => '0',
+                'email_verified_at' => Carbon::now(),
+                'created_at' => Carbon::now(),
+            ],
+            [
+                'name' => 'Pelanggan 3',
+                'email' => 'pianta@user.com',
+                'username' => '085790554274',
+                'password' => Hash::make('085790554274'),
+                'user_role' => 3,
+                'status_id' => 1,
+                'ppn' => '0',
+                'email_verified_at' => null,
+                'created_at' => Carbon::now(),
             ],
             [
                 'name' => 'teknisi 1',
@@ -89,7 +128,9 @@ class AllSeeder extends Seeder
                 'password' => Hash::make('teknisi321'),
                 'user_role' => 2,
                 'status_id' => 3,
+                'ppn' => '0',
                 'email_verified_at' => Carbon::now(),
+                'created_at' => Carbon::now(),
             ],
         ];
         DB::table('users')->insert($user);
@@ -160,9 +201,18 @@ class AllSeeder extends Seeder
             [
                 'nama_cv' => 'CV Gdang Media Perkasa',
                 'email_cv' => 'info@gudangtechno.web.id',
-                'ppn' => 11,
+                'terakhir_generate' => 7,
             ],
         ];
         DB::table('profilcv')->insert($profil);
+
+        $tahun = Carbon::now()->format('Y');
+        $ppn = [
+            [
+                'jumlah' => 11,
+                'tahun' => $tahun,
+            ],
+        ];
+        DB::table('ppn')->insert($ppn);
     }
 }

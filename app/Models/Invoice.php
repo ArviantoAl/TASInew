@@ -22,7 +22,8 @@ class Invoice extends Model
         'tagihan',
         'status_id',
         'bukti_bayar',
-        'bulan'
+        'bulan',
+        'tahun',
     ];
 
     public function pelanggan(){

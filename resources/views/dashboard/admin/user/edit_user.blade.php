@@ -29,15 +29,6 @@
                     @method('PUT')
                     {{--                    <div class="">--}}
                     <div class="form-group">
-                        <label for="user_role" class="form-label">{{ __('User Role') }}</label>
-                        <select id="user_role" name="user_role" class="form-control form-select select2" data-bs-placeholder="Pilih User Role">
-                            <option value="{{ $id_role }}">{{ $nama_role }}</option>
-                            @foreach ($roles as $jenis)
-                                <option value="{{ $jenis->id_role }}">{{ $jenis->nama_role }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <label for="name" class="form-label">Nama</label>
                         <input class="form-control" id="name" name="name" value="{{ $user->name }}" placeholder="Masukkan Nama Lengkap" type="text" required autocomplete="name" autofocus>
                     </div>
@@ -48,7 +39,7 @@
                         </div>
                         <div class="form-group col-6">
                             <label for="username" class="form-label">No Hp</label>
-                            <input class="form-control" id="username" name="username" value="{{ $user->username }}" placeholder="Masukkan Username" type="text" required autocomplete="username" autofocus>
+                            <input class="form-control" id="username" name="username" value="{{ $user->username }}" placeholder="Masukkan No Hp" type="number" required autocomplete="username" autofocus>
                         </div>
                     </div>
                     {{--                    </div>--}}

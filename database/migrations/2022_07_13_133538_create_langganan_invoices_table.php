@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('pelanggan_id')->unsigned();
             $table->foreign('pelanggan_id')->references('id_user')->on('users');
             $table->integer('layanan_id')->unsigned();
-            $table->foreign('layanan_id')->references('id_layanan')->on('layanans');
+            $table->foreign('layanan_id')->references('id_layanan')->on('layanans')->onDelete ('cascade');
             $table->integer('langganan_id')->unsigned();
             $table->foreign('langganan_id')->references('id_langganan')->on('langganans');
             $table->integer('harga_satuan');

@@ -19,13 +19,16 @@ return new class extends Migration
             $table->foreign('pelanggan_id')->references('id_user')->on('users');
             $table->timestamp('tgl_terbit')->nullable();
             $table->timestamp('tgl_tempo')->nullable();
+            $table->timestamp('tgl_bayar')->nullable();
             $table->integer('harga_bayar');
             $table->integer('tagihan');
             $table->integer('bulan');
-            $table->tinyInteger('ppn')->nullable();
+            $table->integer('tahun');
+            $table->integer('ppn');
             $table->integer('status_id')->unsigned();
             $table->foreign('status_id')->references('id_status')->on('status');
             $table->string('bukti_bayar')->nullable();
+            $table->string('metode_pembayaran')->nullable();
             $table->timestamps();
         });
     }

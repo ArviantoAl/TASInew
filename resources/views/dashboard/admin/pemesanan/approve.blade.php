@@ -29,22 +29,25 @@
                     @method('PUT')
                     {{--                    <div class="">--}}
                     <input type="hidden" id="id_lang" value="{{$get_lang->id_langganan}}">
-                    @if($user->status=='0')
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input class="form-control" id="email" name="email" placeholder="Masukkan Email" type="email" required autocomplete="email" autofocus>
-                        </div>
-                    @else
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input class="form-control" id="email" name="email" value="{{ $user->email }}" placeholder="Masukkan Email" type="email" required autocomplete="email" autofocus>
-                        </div>
-                    @endif
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input class="form-control" id="email" name="email" placeholder="Masukkan Email" type="email" required autocomplete="email" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="ppn" class="form-label">PPN</label>
+                        <input id="ppn" class="checkbox" type="checkbox" checked>
+                    </div>
+                    <div class="form-group">
+                        <label for="layanan" class="form-label">Layanan</label>
+                        <select name="layanan" id="layanan" class="form-control form-select select2" data-bs-placeholder="Pilih Layanan" disabled>
+                            <option value="{{$get_lang->layanan_id}}">{{$get_lang->layanan->nama_layanan}}</option>
+                        </select>
+                    </div>
                     <div class="row">
                         <div class="form-group col-6">
                             <label for="bts" class="form-label">BTS</label>
-                            <select name="bts" id="bts" class="form-control form-select select2" data-bs-placeholder="Pilih BTS">
-                                <option>Pilih BTS</option>
+                            <select name="bts" id="bts" class="form-control form-select select2" data-bs-placeholder="Pilih BTS" required>
+                                <option value="0">Pilih BTS</option>
                                 @foreach ($bts as $b)
                                     <option value="{{ $b->id_bts }}">{{ $b->nama_bts }}</option>
                                 @endforeach
@@ -66,6 +69,10 @@
                             <label for="ip_radio" class="form-label">IP Radio</label>
                             <input class="form-control" id="ip_radio" name="ip_radio" placeholder="Masukkan IP Radio" type="text" required autocomplete="ip_radio" autofocus>
                         </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="lokasi" class="form-label">Koordinat Lokasi</label>
+                        <input class="form-control" id="lokasi" name="lokasi" placeholder="ex. -7.551311,110.854192" type="text" autocomplete="lokasi" autofocus>
                     </div>
                     {{--                    </div>--}}
                     <button type="submit" class="btn btn-primary mt-3 mb-0">Submit</button>
@@ -113,11 +120,13 @@
                     var url = "{{ route('admin.postapprove', ":id") }}";
                     url = url.replace(':id', id);
 
+                    var ppn = $('#ppn').prop('checked') === true ? 1 : 0;
                     var id_bts = $('#bts').val();
                     var id_turunan = $('#turunan').val();
                     var ip = $('#ip').val();
                     var ip_radio = $('#ip_radio').val();
                     var email = $('#email').val();
+                    var lokasi = $('#lokasi').val();
                     console.log(email);
                     $.ajax({
                         type: "PUT",
@@ -128,14 +137,18 @@
                             ip: ip,
                             ip_radio: ip_radio,
                             email: email,
+                            ppn: ppn,
+                            lokasi: lokasi,
                         },
                         cache: false,
                         success: function (data) {
-                            if(data.cek == 1){
+                            if(data.cek === 1){
+                                alert(data.msg);
+                            }else if(data.cek === 2){
                                 alert(data.msg);
                             }else {
                                 console.log('success: ' + data);
-                                window.location.href = "{{route('admin.langganan')}}";
+                                window.location.href = "{{route('admin.pelangganaktif')}}";
                             }
                         },
                         error: function (data) {

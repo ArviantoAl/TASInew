@@ -8418,7 +8418,7 @@
                         <th>Langganan</th>
                         <th>Alamat Pemasangan</th>
                         <th>Status Langganan</th>
-                        <th>Harga Langganan</th>
+                        <th>Harga Tagihan</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -8444,7 +8444,23 @@
                         <tbody>
                         <tr>
                             <td class="left">
-                                <strong>Total</strong>
+                                <strong>Sub Total</strong>
+                            </td>
+                            <td>
+                                <div>{{ rupiah($data_ambil['subtotal']) }}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left">
+                                <strong>PPN {{ $data_ambil['ppn'] }}%</strong>
+                            </td>
+                            <td>
+                                <div>{{ rupiah($data_ambil['hargappn']) }}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left">
+                                <strong>Total Tagihan</strong>
                             </td>
                             <td>
                                 <div>{{ rupiah($data_ambil['harga_bayar']) }}</div>

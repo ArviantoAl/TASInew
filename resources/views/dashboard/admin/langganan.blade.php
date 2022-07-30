@@ -57,7 +57,7 @@
                                                 <i class="fa fa-ban"></i>
                                             </a>
                                         </td>
-                                    @elseif($langganan->status_id == 2)
+                                    @elseif($langganan->status_id == 2 || $langganan->status_id == 10)
                                         <td>
                                             <h5>
                                                 <span class="badge badge-pill bg-warning me-1">{{ $langganan->status->nama_status }}</span>
@@ -69,13 +69,7 @@
                                                 <span class="badge badge-pill bg-success me-1">{{ $langganan->status->nama_status }}</span>
                                             </h5>
                                         </td>
-                                    @elseif($langganan->status_id == 4)
-                                        <td>
-                                            <h5>
-                                                <span class="badge badge-pill bg-danger me-1">{{ $langganan->status->nama_status }}</span>
-                                            </h5>
-                                        </td>
-                                    @elseif($langganan->status_id == 5)
+                                    @elseif($langganan->status_id == 4 || $langganan->status_id == 5)
                                         <td>
                                             <h5>
                                                 <span class="badge badge-pill bg-danger me-1">{{ $langganan->status->nama_status }}</span>
@@ -92,5 +86,4 @@
             </div>
         </div>
     </div>
-
 @endsection

@@ -66,7 +66,11 @@ class LoginController extends Controller
             }elseif(auth()->user()->user_role == 2){
                 return redirect()->route('teknisi.dashboard');
             }elseif(auth()->user()->user_role == 3){
-                return redirect()->route('pelanggan.dashboard');
+                if (auth()->user()->status_id == 2 || auth()->user()->status_id == 3){
+                    return redirect()->route('pelanggan.dashboard');
+                }elseif(auth()->user()->status_id == 1){
+                    return redirect()->route('login')->with('error', 'Anda Tidak Bisa Masuk!');
+                }
             }
         }else{
             return redirect()->route('login')->with('error', 'Email dan Password salah');

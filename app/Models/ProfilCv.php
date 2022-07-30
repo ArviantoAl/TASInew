@@ -15,6 +15,6 @@ class ProfilCv extends Model
         'nama_cv',
         'email_cv',
         'logo_cv',
-        'ppn',
+        'export_invoice',
     ];
 }

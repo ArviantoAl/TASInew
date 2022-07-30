@@ -22,7 +22,7 @@
             <div class="card">
                 <div class="card-body">
                     <div>
-                        <h6>anda adalah pelanggan</h6>
+                        <h6>Hai {{Auth::user()->name}}, selamat datang kembali.</h6>
                     </div>
                 </div>
             </div>

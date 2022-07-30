@@ -30,7 +30,9 @@ class RedirectIfAuthenticated
             }elseif(Auth::guard($guard)->check() && Auth::user()->user_role == 2){
                 return redirect()->route('teknisi.dashboard');
             }elseif(Auth::guard($guard)->check() && Auth::user()->user_role == 3) {
-                return redirect()->route('pelanggan.dashboard');
+                if (Auth::user()->status_id == 2 || Auth::user()->status_id == 3){
+                    return redirect()->route('pelanggan.dashboard');
+                }
             }
         }
 

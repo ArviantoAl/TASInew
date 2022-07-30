@@ -27,11 +27,8 @@
                             <div class=" tab-menu-heading mb-2 border-bottom-0">
                                 <div class="tabs-menu1">
                                     <ul class="nav panel-tabs">
-                                        <li class="me-2">
-                                            <a href="#tab5" class="active" data-bs-toggle="tab">Pelanggan Lama</a>
-                                        </li>
                                         <li>
-                                            <a href="#tab6" data-bs-toggle="tab" class="">Pelanggan Baru</a>
+                                            <a href="#tab6" data-bs-toggle="tab" class="active">Pelanggan Baru</a>
                                         </li>
                                         <li>
                                             <a href="#tab7" data-bs-toggle="tab" class="">Pelanggan On Progress</a>
@@ -41,101 +38,8 @@
                             </div>
                             <div class="panel-body tabs-menu-body border-0 p-3">
                                 <div class="tab-content">
-{{--                                    pelanggan lama--}}
-                                    <div class="tab-pane active" id="tab5">
-                                        <form id="form1" action="{{ route('pelanggan_lama') }}">
-                                            <div class="form-group">
-                                                <label for="user" class="form-label">Cari User</label>
-                                                <select name="user" id="user" class="form-control form-select select2" data-bs-placeholder="Pilih User">
-                                                    <option>Pilih User</option>
-                                                    @foreach ($user as $u)
-                                                        <option value="{{ $u->id_user }}">{{ $u->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="layanan" class="form-label">Layanan</label>
-                                                <select name="layanan" id="layanan" class="form-control form-select select2" data-bs-placeholder="Pilih Layanan">
-                                                    <option>Pilih Layanan</option>
-                                                    @foreach ($layanan as $l)
-                                                        <option value="{{ $l->id_layanan }}">{{ $l->nama_layanan }} -
-                                                            {{rupiah($l->harga)}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="form-group col-6">
-                                                    <label for="bts" class="form-label">BTS</label>
-                                                    <select name="bts" id="bts" class="form-control form-select select2" data-bs-placeholder="Pilih BTS">
-                                                        <option>Pilih BTS</option>
-                                                        @foreach ($bts as $b)
-                                                            <option value="{{ $b->id_bts }}">{{ $b->nama_bts }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-
-                                                <div class="form-group col-6">
-                                                    <label for="turunan" class="form-label">Sambungkan ke Pelanggan</label>
-                                                    <select name="turunan" id="turunan" class="form-control form-select select2"></select>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="form-group col-6">
-                                                    <label for="ip" class="form-label">IP Address</label>
-                                                    <input class="form-control" id="ip" name="ip" placeholder="Masukkan IP pelanggan" type="text" required autocomplete="ip" autofocus>
-                                                </div>
-                                                <div class="form-group col-6">
-                                                    <label for="ip_radio" class="form-label">IP Radio</label>
-                                                    <input class="form-control" id="ip_radio" name="ip_radio" placeholder="Masukkan IP Radio" type="text" required autocomplete="ip_radio" autofocus>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-divider">
-                                                {{ __('Alamat Pemasangan') }}
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="form-group col-6">
-                                                    <label for="provinsi" class="form-label">Provinsi</label>
-                                                    <select name="provinsi" id="provinsi" class="form-control form-select select2" data-bs-placeholder="Pilih Provinsi">
-                                                        <option>Pilih Provinsi</option>
-                                                        @foreach ($provinsi as $p)
-                                                            <option value="{{ $p->id }}">{{ $p->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-
-                                                <div class="form-group col-6">
-                                                    <label for="kabupaten" class="form-label">Kabupaten/Kota</label>
-                                                    <select name="kabupaten" id="kabupaten" class="form-control form-select select2"></select>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="form-group col-6">
-                                                    <label for="kecamatan" class="form-label">Kecamatan</label>
-                                                    <select name="kecamatan" id="kecamatan" class="form-control form-select select2"></select>
-                                                </div>
-
-                                                <div class="form-group col-6">
-                                                    <label for="desa" class="form-label">Desa/Kelurahan</label>
-                                                    <select name="desa" id="desa" class="form-control form-select select2"></select>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="alamat" class="form-label">Alamat</label>
-                                                <textarea class="form-control" id="alamat" placeholder="Masukkan Alamat Lengkap Pelanggan" required></textarea>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary pd-x-30 mg-r-5 mg-t-5">Pesan</button>
-                                        </form>
-                                    </div>
-
 {{--                                    pelanggan baru--}}
-                                    <div class="tab-pane" id="tab6">
+                                    <div class="tab-pane active" id="tab6">
                                         <form id="form2" action="{{ route('pelanggan_baru') }}">
                                             <div class="form-group">
                                                 <label for="name" class="form-label">Nama</label>
@@ -148,18 +52,21 @@
                                                 </div>
                                                 <div class="form-group col-6">
                                                     <label for="username" class="form-label">No Hp</label>
-                                                    <input class="form-control" id="username" name="username" placeholder="Masukkan Username" type="text" required autocomplete="username" autofocus>
+                                                    <input class="form-control" id="username" name="username" placeholder="Masukkan No Hp" type="number" required autocomplete="username" autofocus>
                                                 </div>
                                             </div>
-
+                                            <div class="form-group">
+                                                <label for="ppn" class="form-label">PPN</label>
+                                                <input id="ppn" class="checkbox" type="checkbox" checked>
+                                            </div>
                                             <div class="form-divider">
                                                 {{ __('Pesan Langganan') }}
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="layanan2" class="form-label">Layanan</label>
-                                                <select name="layanan2" id="layanan2" class="form-control form-select select2" data-bs-placeholder="Pilih Layanan">
-                                                    <option>Pilih Layanan</option>
+                                                <select name="layanan2" id="layanan2" class="form-control form-select select2" required data-bs-placeholder="Pilih Layanan">
+                                                    <option value="0">Pilih Layanan</option>
                                                     @foreach ($layanan as $l)
                                                         <option value="{{ $l->id_layanan }}">{{ $l->nama_layanan}} -
                                                             {{rupiah($l->harga)}}</option>
@@ -170,8 +77,8 @@
                                             <div class="row">
                                                 <div class="form-group col-6">
                                                     <label for="bts2" class="form-label">BTS</label>
-                                                    <select name="bts2" id="bts2" class="form-control form-select select2" data-bs-placeholder="Pilih BTS">
-                                                        <option>Pilih BTS</option>
+                                                    <select name="bts2" id="bts2" class="form-control form-select select2" data-bs-placeholder="Pilih BTS" required>
+                                                        <option value="0">Pilih BTS</option>
                                                         @foreach ($bts as $b)
                                                             <option value="{{ $b->id_bts }}">{{ $b->nama_bts }}</option>
                                                         @endforeach
@@ -202,8 +109,8 @@
                                             <div class="row">
                                                 <div class="form-group col-6">
                                                     <label for="provinsi2" class="form-label">Provinsi</label>
-                                                    <select name="provinsi" id="provinsi2" class="form-control form-select select2" data-bs-placeholder="Pilih Provinsi">
-                                                        <option>Pilih Provinsi</option>
+                                                    <select name="provinsi" id="provinsi2" class="form-control form-select select2" data-bs-placeholder="Pilih Provinsi" required>
+                                                        <option value="0">Pilih Provinsi</option>
                                                         @foreach ($provinsi as $p)
                                                             <option value="{{ $p->id }}">{{ $p->name }}</option>
                                                         @endforeach
@@ -212,25 +119,31 @@
 
                                                 <div class="form-group col-6">
                                                     <label for="kabupaten2" class="form-label">Kabupaten/Kota</label>
-                                                    <select name="kabupaten" id="kabupaten2" class="form-control form-select select2"></select>
+                                                    <select name="kabupaten" id="kabupaten2" class="form-control form-select select2" required></select>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="form-group col-6">
                                                     <label for="kecamatan2" class="form-label">Kecamatan</label>
-                                                    <select name="kecamatan" id="kecamatan2" class="form-control form-select select2"></select>
+                                                    <select name="kecamatan" id="kecamatan2" class="form-control form-select select2" required></select>
                                                 </div>
 
                                                 <div class="form-group col-6">
                                                     <label for="desa2" class="form-label">Desa/Kelurahan</label>
-                                                    <select name="desa" id="desa2" class="form-control form-select select2"></select>
+                                                    <select name="desa" id="desa2" class="form-control form-select select2" required></select>
                                                 </div>
                                             </div>
 
-                                            <div class="form-group">
-                                                <label for="alamat2" class="form-label">Alamat</label>
-                                                <textarea class="form-control" id="alamat2" placeholder="Masukkan Alamat Lengkap Pelanggan" required></textarea>
+                                            <div class="row">
+                                                <div class="form-group col-6">
+                                                    <label for="alamat2" class="form-label">Alamat</label>
+                                                    <textarea class="form-control" id="alamat2" placeholder="Masukkan Alamat Lengkap Pelanggan" required></textarea>
+                                                </div>
+                                                <div class="form-group col-6">
+                                                    <label for="lokasi2" class="form-label">Koordinat Lokasi</label>
+                                                    <input class="form-control" id="lokasi2" name="lokasi2" placeholder="ex. -7.551311,110.854192" type="text" autocomplete="lokasi2" autofocus>
+                                                </div>
                                             </div>
                                             <button type="submit" class="btn btn-primary pd-x-30 mg-r-5 mg-t-5">Create</button>
                                         </form>
@@ -245,7 +158,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="username3" class="form-label">No HP</label>
-                                                <input class="form-control" id="username3" name="username3" placeholder="Masukkan No HP" type="text" required autocomplete="username3" autofocus>
+                                                <input class="form-control" id="username3" name="username3" placeholder="Masukkan No HP" type="number" required autocomplete="username3" autofocus>
                                             </div>
 
                                             <div class="form-divider">
@@ -254,10 +167,11 @@
 
                                             <div class="form-group">
                                                 <label for="layanan3" class="form-label">Layanan</label>
-                                                <select name="layanan3" id="layanan3" class="form-control form-select select2" data-bs-placeholder="Pilih Layanan">
+                                                <select name="layanan3" id="layanan3" class="form-control form-select select2" data-bs-placeholder="Pilih Layanan" required>
                                                     <option>Pilih Layanan</option>
                                                     @foreach ($layanan as $l)
-                                                        <option value="{{ $l->id_layanan }}">{{ $l->nama_layanan }}</option>
+                                                        <option value="{{ $l->id_layanan }}">{{ $l->nama_layanan }} -
+                                                            {{rupiah($l->harga)}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -269,7 +183,7 @@
                                             <div class="row">
                                                 <div class="form-group col-6">
                                                     <label for="provinsi3" class="form-label">Provinsi</label>
-                                                    <select name="provinsi3" id="provinsi3" class="form-control form-select select2" data-bs-placeholder="Pilih Provinsi">
+                                                    <select name="provinsi3" id="provinsi3" class="form-control form-select select2" data-bs-placeholder="Pilih Provinsi" required>
                                                         <option>Pilih Provinsi</option>
                                                         @foreach ($provinsi as $p)
                                                             <option value="{{ $p->id }}">{{ $p->name }}</option>
@@ -279,19 +193,19 @@
 
                                                 <div class="form-group col-6">
                                                     <label for="kabupaten3" class="form-label">Kabupaten/Kota</label>
-                                                    <select name="kabupaten3" id="kabupaten3" class="form-control form-select select2"></select>
+                                                    <select name="kabupaten3" id="kabupaten3" class="form-control form-select select2" required></select>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="form-group col-6">
                                                     <label for="kecamatan3" class="form-label">Kecamatan</label>
-                                                    <select name="kecamatan3" id="kecamatan3" class="form-control form-select select2"></select>
+                                                    <select name="kecamatan3" id="kecamatan3" class="form-control form-select select2" required></select>
                                                 </div>
 
                                                 <div class="form-group col-6">
                                                     <label for="desa3" class="form-label">Desa/Kelurahan</label>
-                                                    <select name="desa3" id="desa3" class="form-control form-select select2"></select>
+                                                    <select name="desa3" id="desa3" class="form-control form-select select2" required></select>
                                                 </div>
                                             </div>
 
@@ -323,125 +237,6 @@
             });
 
             $(function () {
-// pelanggan lama
-                $('#bts').on('change', function () {
-                    var id_bts = $('#bts').val();
-                    console.log(id_bts);
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('getTurunan')}}",
-                        data: {id_bts: id_bts},
-                        cache: false,
-                        success: function (msg) {
-                            $('#turunan').html(msg);
-                        },
-                        error: function (data) {
-                            console.log('error:', data);
-                        }
-                    })
-                })
-                $('#turunan').on('change',function (){
-                    var id_turunan = $('#turunan').val();
-                    console.log(id_turunan);
-                })
-                $('#provinsi').on('change',function (){
-                    var id_provinsi = $('#provinsi').val();
-                    console.log(id_provinsi)
-                    $.ajax({
-                        type : "POST",
-                        url : "{{route('getKabupaten')}}",
-                        data : {id_provinsi:id_provinsi},
-                        cache : false,
-                        success: function (msg){
-                            $('#kabupaten').html(msg);
-                            $('#kecamatan').html('');
-                            $('#desa').html('');
-                        },
-                        error: function (data){
-                            console.log('error:',data);
-                        }
-                    })
-                })
-                $('#kabupaten').on('change',function (){
-                    var id_kabupaten = $('#kabupaten').val();
-                    console.log(id_kabupaten);
-                    $.ajax({
-                        type : "POST",
-                        url : "{{route('getKecamatan')}}",
-                        data : {id_kabupaten:id_kabupaten},
-                        cache : false,
-                        success: function (msg){
-                            $('#kecamatan').html(msg);
-                            $('#desa').html('');
-                        },
-                        error: function (data){
-                            console.log('error:',data);
-                        }
-                    })
-                })
-                $('#kecamatan').on('change',function (){
-                    var id_kecamatan = $('#kecamatan').val();
-                    console.log(id_kecamatan);
-                    $.ajax({
-                        type : "POST",
-                        url : "{{route('getDesa')}}",
-                        data : {id_kecamatan:id_kecamatan},
-                        cache : false,
-                        success: function (msg){
-                            $('#desa').html(msg);
-                        },
-                        error: function (data){
-                            console.log('error:',data);
-                        }
-                    })
-                })
-                $('#desa').on('change',function (){
-                    var id_desa = $('#desa').val();
-                    console.log(id_desa);
-                })
-                $("#form1").submit(function (e) {
-                    e.preventDefault();
-                    var id_user = $('#user').val();
-                    var id_layanan = $('#layanan').val();
-                    var id_bts = $('#bts').val();
-                    var id_turunan = $('#turunan').val();
-                    var ip = $('#ip').val();
-                    var ip_radio = $('#ip_radio').val();
-                    var id_provinsi = $('#provinsi').val();
-                    var id_kabupaten = $('#kabupaten').val();
-                    var id_kecamatan = $('#kecamatan').val();
-                    var id_desa = $('#desa').val();
-                    var id_alamat = $('#alamat').val();
-                    console.log(id_alamat);
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('pelanggan_lama')}}",
-                        data: {
-                            id_user: id_user,
-                            id_layanan: id_layanan,
-                            id_bts: id_bts,
-                            id_turunan: id_turunan,
-                            ip: ip,
-                            ip_radio: ip_radio,
-                            id_provinsi: id_provinsi,
-                            id_kabupaten: id_kabupaten,
-                            id_kecamatan: id_kecamatan,
-                            id_desa: id_desa,
-                            id_alamat: id_alamat
-                        },
-                        cache: false,
-                        success: function (data) {
-                            console.log('success: ' + data);
-                            window.location.href = "{{route('admin.langganan')}}";
-                        },
-                        error: function (data) {
-                            var errors = data.responseJSON;
-                            console.log(errors);
-                        }
-                    })
-                })
-// end
-
 // pelanggan baru
                 $('#bts2').on('change', function () {
                     var id_bts2 = $('#bts2').val();
@@ -523,6 +318,7 @@
                     var name = $('#name').val();
                     var email = $('#email').val();
                     var username = $('#username').val();
+                    var ppn = $('#ppn').prop('checked') === true ? 1 : 0;
                     var id_layanan = $('#layanan2').val();
                     var id_bts = $('#bts2').val();
                     var id_turunan = $('#turunan2').val();
@@ -533,6 +329,7 @@
                     var id_kecamatan = $('#kecamatan2').val();
                     var id_desa = $('#desa2').val();
                     var id_alamat = $('#alamat2').val();
+                    var lokasi = $('#lokasi2').val();
                     console.log(id_alamat);
                     $.ajax({
                         type: "POST",
@@ -541,6 +338,7 @@
                             name: name,
                             email: email,
                             username: username,
+                            ppn: ppn,
                             id_layanan: id_layanan,
                             id_bts: id_bts,
                             id_turunan: id_turunan,
@@ -550,19 +348,32 @@
                             id_kabupaten: id_kabupaten,
                             id_kecamatan: id_kecamatan,
                             id_desa: id_desa,
-                            id_alamat: id_alamat
+                            id_alamat: id_alamat,
+                            lokasi: lokasi
                         },
                         cache: false,
                         success: function (data) {
-                            if(data.cek == 0){
+                            if(data.cek === 0){
                                 alert(data.msg);
-                            }else if(data.cek == 1){
+                            }else if(data.cek === 1){
                                 alert(data.msg);
-                            }else if(data.cek == 2){
+                            }else if(data.cek === 2){
+                                alert(data.msg);
+                            }else if(data.cek === 3){
+                                alert(data.msg);
+                            }else if(data.cek === 4){
+                                alert(data.msg);
+                            }else if(data.cek === 5){
+                                alert(data.msg);
+                            }else if(data.cek === 6){
+                                alert(data.msg);
+                            }else if(data.cek === 7){
+                                alert(data.msg);
+                            }else if(data.cek === 8){
                                 alert(data.msg);
                             }else {
                                 console.log('success: ' + data);
-                                window.location.href = "{{route('admin.langganan')}}";
+                                window.location.href = "{{route('admin.pelangganaktif')}}";
                             }
                         },
                         error: function (data) {
@@ -656,19 +467,29 @@
                             id_kabupaten: id_kabupaten,
                             id_kecamatan: id_kecamatan,
                             id_desa: id_desa,
-                            id_alamat: id_alamat
+                            id_alamat: id_alamat,
                         },
                         cache: false,
                         success: function (data) {
-                            if(data.cek == 0){
+                            if(data.cek === 0){
                                 alert(data.msg);
-                            }else if(data.cek == 1){
+                            }else if(data.cek === 1){
                                 alert(data.msg);
-                            }else if(data.cek == 2){
+                            }else if(data.cek === 2){
+                                alert(data.msg);
+                            }else if(data.cek === 3){
+                                alert(data.msg);
+                            }else if(data.cek === 4){
+                                alert(data.msg);
+                            }else if(data.cek === 5){
+                                alert(data.msg);
+                            }else if(data.cek === 6){
+                                alert(data.msg);
+                            }else if(data.cek === 7){
                                 alert(data.msg);
                             }else {
                                 console.log('success: ' + data);
-                                window.location.href = "{{route('admin.langganan')}}";
+                                window.location.href = "{{route('admin.pelangganaktif')}}";
                             }
                         },
                         error: function (data) {var errors = data.responseJSON;

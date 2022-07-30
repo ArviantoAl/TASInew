@@ -14,6 +14,7 @@ class TurunanBts extends Model
     protected $fillable = [
         'nama_turunan',
         'bts_id',
+        'langganan_id',
         'provinsi_id',
         'kabupaten_id',
         'kecamatan_id',

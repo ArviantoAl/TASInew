@@ -33,7 +33,8 @@ return new class extends Migration
             $table->string('frekuensi');
             $table->string('ssid');
             $table->string('ip');
-            $table->string('lokasi')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->integer('status_id')->unsigned();
             $table->foreign('status_id')->references('id_status')->on('status');
             $table->timestamps();

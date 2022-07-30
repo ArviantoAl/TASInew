@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('pelanggan_id')->nullable()->unsigned();
             $table->foreign('pelanggan_id')->references('id_user')->on('users');
             $table->integer('layanan_id')->unsigned();
-            $table->foreign('layanan_id')->references('id_layanan')->on('layanans');
+            $table->foreign('layanan_id')->references('id_layanan')->on('layanans')->onDelete ('cascade'); //->onDelete ('cascade');
             $table->char('provinsi_id');
             $table->foreign('provinsi_id')->references('id')->on('provinces');
             $table->char('kabupaten_id');
@@ -29,6 +29,8 @@ return new class extends Migration
             $table->foreign('desa_id')->references('id')->on('villages');
             $table->longText('detail_alamat');
             $table->longText('alamat_pasang')->nullable(); //untuk di implode jadi satu
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->integer('status_id')->unsigned();
             $table->foreign('status_id')->references('id_status')->on('status');
             $table->timestamp('tgl_aktif')->nullable();
@@ -36,7 +38,7 @@ return new class extends Migration
             $table->integer('bts_id')->nullable()->unsigned();
             $table->foreign('bts_id')->references('id_bts')->on('bts');
             $table->integer('turunan_id')->nullable()->unsigned();
-            $table->foreign('turunan_id')->references('id_bts')->on('bts');
+            $table->foreign('turunan_id')->references('id_turunan')->on('turunan_bts');
             $table->string('ip')->nullable();
             $table->string('ip_radio')->nullable();
             $table->timestamps();

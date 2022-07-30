@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('bts_id')->unsigned();
             $table->foreign('bts_id')->references('id_bts')->on('bts');
             $table->string('nama_turunan');
+            $table->integer('langganan_id');
             $table->char('provinsi_id');
             $table->foreign('provinsi_id')->references('id')->on('provinces');
             $table->char('kabupaten_id');
@@ -31,7 +32,8 @@ return new class extends Migration
             $table->string('frekuensi');
             $table->string('ssid');
             $table->string('ip');
-            $table->string('lokasi')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->integer('status_id')->unsigned();
             $table->foreign('status_id')->references('id_status')->on('status');
             $table->timestamps();

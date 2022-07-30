@@ -24,6 +24,7 @@ return new class extends Migration
             $table->foreign('user_role')->references('id_role')->on('roles');
             $table->integer('status_id')->unsigned();
             $table->foreign('status_id')->references('id_status')->on('status');
+            $table->enum('ppn',['1','0']);//0tidak 1iya
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

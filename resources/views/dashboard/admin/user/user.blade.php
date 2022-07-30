@@ -32,7 +32,7 @@
                                 <th>No Hp</th>
                                 <th>Role</th>
                                 <th>Status</th>
-                                <th>Action</th>
+                                <th colspan="3">Action</th>
                             </tr>
                             </thead>
                             <tbody style="text-align: center">
@@ -67,15 +67,6 @@
                                             <i class="fa fa-edit"></i>
                                         </a>
                                     </td>
-{{--                                    <td>--}}
-{{--                                        <form action="{{ route('admin.deleteuser', $user->id_user) }}" method="POST">--}}
-{{--                                            @csrf--}}
-{{--                                            <input type="hidden" name="_method" value="DELETE">--}}
-{{--                                            <button class="btn btn-danger" type="submit" data-toggle="tooltip" title="Hapus">--}}
-{{--                                                <i class="fa fa-trash"></i>--}}
-{{--                                            </button>--}}
-{{--                                        </form>--}}
-{{--                                    </td>--}}
                                 </tr>
                             @endforeach
                             </tbody>

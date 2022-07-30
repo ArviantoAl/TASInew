@@ -53,7 +53,7 @@
                                         </td>
                                         <td>
                                             <a class="btn btn-warning" data-bs-toggle="collapse" data-bs-target="#demo{{$invoice->id_invoice}}" data-toggle="tooltip" title="Upload Bukti Pembayaran">
-                                                <i class="fa fa-upload"></i>
+                                                <i style="color: white" class="fa fa-upload"></i>
                                             </a>
                                         </td>
                                     @elseif($invoice->status_id == 7)
@@ -87,7 +87,7 @@
 
                                             <div class="form-group">
                                                 <label for="bukti">{{ __('Upload Bukti') }}</label>
-                                                <input id="bukti" type="file" class="dropify" name="bukti" data-height="100" />
+                                                <input id="bukti" type="file" class="dropify" name="bukti" data-height="100" required/>
                                             </div>
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-primary btn-lg btn-center-block col-sm-3">

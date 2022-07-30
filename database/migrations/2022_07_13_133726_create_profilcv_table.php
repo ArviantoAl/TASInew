@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama_cv');
             $table->string('email_cv');
             $table->string('logo_cv')->nullable();
-            $table->integer('ppn');
+            $table->integer('terakhir_generate');
             $table->timestamps();
         });
     }
